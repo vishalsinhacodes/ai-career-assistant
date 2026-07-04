@@ -15,3 +15,9 @@ class JDAnalysis(BaseModel):
     experience_years: str
     location: str
     match_recommendation:  MatchRecommendation   
+    
+class MatchResult(BaseModel):
+    matched_skills: list[str]
+    gap_skills: list[str]
+    match_percentage: float
+    recommendation: MatchRecommendation    
