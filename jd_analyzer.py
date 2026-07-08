@@ -1,12 +1,9 @@
-import os
-from openai import OpenAI
 import json
-from dotenv import load_dotenv
 from pydantic import ValidationError
 
+from config import MODEL, client
 from models import JDAnalysis
 
-load_dotenv()
 
 SYSTEM_PROMPT = """
                 You are a Job description expert. You need to check the details from the shared
@@ -20,9 +17,6 @@ SYSTEM_PROMPT = """
                     match_recommendation:  "apply" or "skip" 
                 No explaination, No markdown, Return only valid JSON.
 """
-
-MODEL = "gpt-4o-mini"
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def analyze_jd(job_description: str):
     response = client.chat.completions.create(

@@ -21,3 +21,10 @@ class MatchResult(BaseModel):
     gap_skills: list[str]
     match_percentage: float
     recommendation: MatchRecommendation    
+    
+class InterviewQuestion(BaseModel):
+    question: str
+    suggested_answer: str
+    
+class InterviewPrep(BaseModel):
+    questions: list[InterviewQuestion]        

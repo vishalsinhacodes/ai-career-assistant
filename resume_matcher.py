@@ -1,5 +1,5 @@
 from models import MatchResult
-from jd_analyzer import client, MODEL
+from config import MODEL, client
 import json
 from pydantic import ValidationError
 
